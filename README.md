@@ -6,6 +6,7 @@ It includes:
 - **Kernel Cleanup**: Removes old and unused kernels.
 - **Package Cleanup**: Cleans unused and orphaned packages, APT cache, and Snap cache.
 - **Temporary Files**: Clears `/tmp` and `/var/tmp`.
+- **Log Files**: Clears `/var/log`.
 - **User Data**: Cleans up `~/Downloads`, Firefox cache, and thumbnail cache.
 - **Scattered Junk**: Finds and deletes `.DS_Store` and `Thumbs.db` files.
 Might add more cleanups later.
