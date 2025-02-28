@@ -58,10 +58,10 @@ echo -e "${BLUE}Currently running kernel: ${GREEN}$CURRENT_KERNEL${NC}"
 print_separator
 
 # Get the list of installed kernels (excluding the current one and the meta-package)
-INSTALLED_KERNELS=$(dpkg --list | grep '^ii' | grep -E 'linux-image-[0-9]' | awk '{print $2}' | grep -v "$CURRENT_KERNEL" | grep -v "linux-image-amd64")
+INSTALLED_KERNELS=$(dpkg --list | grep '^ii' | grep -E '^linux-image-[0-9]+' | awk '{print $2}' | grep -v "$CURRENT_KERNEL" | grep -v "linux-image-amd64")
 
 # Get the list of removed kernels (rc status)
-REMOVED_KERNELS=$(dpkg --list | grep '^rc' | awk '{print $2}')
+REMOVED_KERNELS=$(dpkg --list | grep '^rc' | grep -E '^linux-image-[0-9]+' | awk '{print $2}')
 
 # Remove old installed kernels
 if [ -n "$INSTALLED_KERNELS" ]; then
